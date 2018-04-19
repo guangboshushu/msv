@@ -1,7 +1,12 @@
 const express = require('express')
 const app = express()
 const sendMail = require('./mail/mail')
+const bodyParser = require('body-parser')
 
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({
+  extended: false
+}))
 
 app.post('/send_mail', (req, res) => {
   console.log(req.body)
