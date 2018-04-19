@@ -6,6 +6,9 @@ var jsonParser = bodyParser.json()
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 app.post('/send_mail', urlencodedParser, function(req, res) {
   console.log(req.body)
+  for let (obj of req.body) {
+    console.log(obj)
+  }
   res.send('-------------')
 })
 
