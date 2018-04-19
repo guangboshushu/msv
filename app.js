@@ -4,11 +4,15 @@ const app = express()
 var bodyParser = require('body-parser');
 var jsonParser = bodyParser.json()
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
+const sendMail = require('./mail/mail')
+
 app.post('/send_mail', urlencodedParser, function(req, res) {
-  console.log(req.body)
-  for let (obj of req.body) {
-    console.log(obj)
-  }
+  let body = Object.keys(req.body)
+  let mail = JSON.parse((body[0]))
+     let toUser = mail.toUser
+     let content = mail.content
+     let subject = mail.subject
+     sendMail(toUser, subject, content)
   res.send('-------------')
 })
 
