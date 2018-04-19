@@ -12,7 +12,8 @@ app.use(bodyParser.urlencoded({
 }))
 
 app.post('/send_mail', (req, res) => {
-  console.log(req.body)
+  console.log('1',req.body)
+  console.log('2',eq.body.params)
   let toUser = req.body.toUser
   let content = req.body.content
   let subject = req.body.content
