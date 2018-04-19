@@ -15,9 +15,9 @@ app.post('/send_mail', (req, res) => {
   console.log('body', req.body)
   let toUser = req.body.toUser
   let content = req.body.content
-  let subject = req.body.content
+  let subject = req.body.subject
   sendMail(toUser, subject, content)
-  res.send(req.query)
+  res.send(req.body)
 })
 
 
