@@ -4,14 +4,16 @@ const sendMail = require('./mail/mail')
 const multipart = require('connect-multiparty')
 
 const bodyParser = require('body-parser')
+const urlencodedParser = bodyParser.urlencoded({ extended: false })
+
 app.use(multipart())
 
 app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({
-  extended: false
-}))
+// app.use(bodyParser.urlencoded({
+//   extended: false
+// }))
 
-app.post('/send_mail', (req, res) => {
+app.post('/send_mail', urlencodedParser, (req, res) => {
   console.log('body', req.body)
   let toUser = req.body.toUser
   let content = req.body.content
