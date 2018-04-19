@@ -5,11 +5,8 @@ var bodyParser = require('body-parser');
 var jsonParser = bodyParser.json()
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 app.post('/send_mail', urlencodedParser, function(req, res) {
-    if (!req.body) return res.sendStatus(400);
-
-    console.log('Username: ' + req.body);
-
-    res.send('Welcome,');
+  console.log(req.body)
+  res.send('-------------')
 })
 
 // const express = require('express')
