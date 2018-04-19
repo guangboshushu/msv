@@ -1,7 +1,10 @@
 const express = require('express')
 const app = express()
 const sendMail = require('./mail/mail')
+const multipart = require('connect-multiparty')
+
 const bodyParser = require('body-parser')
+app.use(multipart())
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
